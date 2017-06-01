@@ -15,6 +15,7 @@
     "uglify-js": "^3.0.14"
   },
   "scripts": {
+    "postinstall": "npm start",
     "prestart": "browserify paperstack.js -o paperstack.es5.js -t [ babelify --presets [ es2015 ] ];",
     "start": "uglifyjs ./paperstack.es5.js --compress -o paperstack.min.js",
     "poststart": "del paperstack.es5.js"
