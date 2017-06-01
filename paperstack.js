@@ -35,16 +35,22 @@
         this.prevBtn.click(this.previous);
 
         this.setPage = function(pageNum) {
-            let type = this.currentPage < pageNum ? 'next' : 'prev';
-
-            this.currentPage = pageNum;
-            this.sheetOrder = Array.from(Array(this.sheets.length).keys());
-
-            for (let i = 0; i < pageNum; i++) {
-                this.sheetOrder.unshift(this.sheetOrder.pop());
+            if (pageNum > this.sheets.length) {
+                pageNum = this.sheets.length;
+            } else if (pageNum < 0) {
+                pageNum = 0;
             }
 
-            this._changePage(type);
+            let diff = pageNum - this.currentPage;
+            let func = diff > 0 ? this.next : this.previous;
+
+            let counter = 0;
+            let interval = setInterval(() => {
+                func();
+                if (++counter > Math.abs(diff)) {
+                    clearInterval(interval);
+                }
+            }, 100);
         };
 
         this._changePage = (source) => {
