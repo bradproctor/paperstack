@@ -7,7 +7,6 @@ Supports flipping through "pages" with `next` and `previous` functions, as well 
 a specific page with the `setPage` function.
 
 ### To Do
-- `setPage` function still needs work to smooth up the animation.
 - Work on styling to get it to fit into a container a bit more nicely
 - Publish to NPM
 
