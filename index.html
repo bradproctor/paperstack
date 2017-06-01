@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PaperStack</title>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./bundle.js"></script>
+    <link rel="stylesheet" href="./paperstack.css" />
+
+    <style>
+        h2 {
+            text-align: center;
+            user-select: none;
+        }
+
+        h2 a {
+            text-decoration: none;
+            color: gray;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    $(document).ready(function() {
+        var stack = $('.stack').paperstack({});
+
+        $('#next').click(stack.next);
+        $('#prev').click(stack.previous);
+    });
+</script>
+
+<h2>
+    <a id="prev">&lt;</a>
+    <a id="next">&gt;</a>
+</h2>
+
+<div class="stack">
+    <div class="sheet">Page 1</div>
+    <div class="sheet">Page 2</div>
+    <div class="sheet">Page 3</div>
+    <div class="sheet">Page 4</div>
+    <div class="sheet">Page 5</div>
+</div>
+
+</body>
+</html>
